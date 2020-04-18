@@ -1,6 +1,6 @@
 # Ionic Vue Form
 
-This tiny package renders dynamic fully customizable form with form-field conditional logic. Takes in 3 props, form, data and btnText.
+This tiny package renders dynamic fully customizable form with form-field conditional logic.
 
 ## Basic usage
 `npm install vue-ionic-form`
@@ -8,7 +8,7 @@ This tiny package renders dynamic fully customizable form with form-field condit
 ```
 <template>
   <div>
-    <IonicVueForm :formFields="form" btnText="Submit" />
+    <IonicVueForm :formFields="form" btnText="Submit" @submit="submit" />
   </div>
 </template>
 
@@ -48,7 +48,7 @@ This tiny package renders dynamic fully customizable form with form-field condit
 ```
 <template>
   <div>
-    <IonicVueForm :formFields="form" :data="formData" btnText="Submit" />
+    <IonicVueForm :formFields="form" :data="formData" btnText="Submit" @submit="submit" />
   </div>
 </template>
 
