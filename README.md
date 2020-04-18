@@ -1,6 +1,6 @@
 # Ionic Vue Form
 
-This tiny package renders dynamic fully customizable form with form-field conditional logic; if answer is this then show/hide this field. Takes in 3 props, form, data and btnText.
+This tiny package renders dynamic fully customizable form with form-field conditional logic. Takes in 3 props, form, data and btnText.
 
 ## Basic usage
 `npm install vue-ionic-form`

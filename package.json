@@ -24,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/dlodeprojuicer/ionic-vue-form/issues"
   },
-  "homepage": "https://github.com/dlodeprojuicer/ionic-vue-form#readme"
+  "homepage": "https://github.com/dlodeprojuicer/ionic-vue-form#readme",
+  "dependencies": {
+    "@ionic/core": "^4.6.2",
+    "@ionic/vue": "0.0.4",
+    "vee-validate": "^2.2.13"
+  }
 }
