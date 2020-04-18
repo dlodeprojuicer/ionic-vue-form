@@ -110,34 +110,6 @@ export default {
 
       this.$validator.validateAll().then(res => {
         if (res) {
-          if (this.groupAddress) {
-            for (let a in this.formData) {
-              if (
-                a.includes("address_") ||
-                a === "create_date" ||
-                a === "entity_address_id" ||
-                a === "entity_id" ||
-                a === "geom" ||
-                a === "is_active" ||
-                a === "lat" ||
-                a === "lng" ||
-                a === "pobox" ||
-                a === "suburb_city_id" ||
-                a === "unit_number" ||
-                a === "update_date"
-              ) {
-                if (this.formData.address) {
-                  this.formData.address[a] = this.formData[a];
-                } else {
-                  this.formData["address"] = {
-                    [a]: this.formData[a]
-                  }
-                }
-                delete this.formData[a];
-              }
-            }
-          }
-
           this.$emit("submit", this.formData);
         }
       });
