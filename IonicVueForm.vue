@@ -1,68 +1,65 @@
 <template>
-  <div class="default-form">
-    <form @submit="submit">
-      <div v-for="(item, index) in formFields" :key="index">
-        <!-- Show if the is no condition or if specified condition is met -->
-        <div v-if="!item.condition || (item.condition && item.condition.value === formData[item.condition.key])">
-          <label v-if="item.type !== 'helperText' && item.type !== 'checkbox'">{{ item.label }}</label>
+  <form @submit="submit" :class="wrapperClass">
+    <div v-for="(item, index) in formFields" :key="index">
+      <!-- Show if the is no condition or if specified condition is met -->
+      <div v-if="!item.condition || (item.condition && item.condition.value === formData[item.condition.key])">
+        <label v-if="item.type !== 'helperText' && item.type !== 'checkbox'">{{ item.label }}</label>
 
-          <p class="helperText" v-if="item.type === `helperText`">
-            <b>{{ item.label }}</b>
-            <br />
-            {{ item.description }}
-          </p>
+        <p :class="item.class" v-if="item.type === `helperText`">
+          <b>{{ item.label }}</b>
+          <br />
+          {{ item.description }}
+        </p>
 
-          <input
-            :class="`uk-input ${customFileInputClass(item.type)}`"
-            :type="item.type"
-            v-model="formData[item.key]"
-            v-if="item.type !== 'select' && item.type !== 'helperText' && item.type !== 'checkbox' && item.type !== 'textarea'"
-            :name="item.key"
-            @change="item.type === 'file' ? fileUpload : null"
-            v-validate="item.validation"
-          />
+        <input
+          :class="item.class"
+          :type="item.type"
+          v-model="formData[item.key]"
+          v-if="item.type !== 'select' && item.type !== 'helperText' && item.type !== 'checkbox' && item.type !== 'textarea'"
+          :name="item.key"
+          @change="item.type === 'file' ? fileUpload : null"
+          v-validate="item.validation"
+        />
 
-          <ion-item class="checkbox" v-if="item.type === 'checkbox'">
-            <p>{{ item.label }}</p>
-            <ion-checkbox
-              slot="start"
-              @input="formData[item.key] = $event.target.value"
-              :checked="formData[item.key]"
-              :value="formData[item.key]">
-            </ion-checkbox>
-          </ion-item>
+        <ion-item class="checkbox" v-if="item.type === 'checkbox'">
+          <p>{{ item.label }}</p>
+          <ion-checkbox
+            slot="start"
+            @input="formData[item.key] = $event.target.value"
+            :checked="formData[item.key]"
+            :value="formData[item.key]">
+          </ion-checkbox>
+        </ion-item>
 
-          <select
-            v-if="item.type === 'select'"
-            v-model="formData[item.key]"
-            class="uk-select uk-form-width-large"
-            :name="item.key"
-            v-validate="item.validation"
-          >
-            <option
-              v-for="(item, index) in item.options"
-              :key="index"
-              :value="item.label"
-              >{{ item.label }}
-              </option>
-          </select>
+        <select
+          v-if="item.type === 'select'"
+          v-model="formData[item.key]"
+          :class="item.class"
+          :name="item.key"
+          v-validate="item.validation"
+        >
+          <option
+            v-for="(item, index) in item.options"
+            :key="index"
+            :value="item.label"
+            >{{ item.label }}
+            </option>
+        </select>
 
-          <textarea
-            v-model="formData[item.key]"
-            :rows="item.rows"
-            :cols="item.cols"
-            :class="item.class"
-            type="textarea"
-            v-if="item.type === 'textarea'"
-          />
+        <textarea
+          v-model="formData[item.key]"
+          :rows="item.rows"
+          :cols="item.cols"
+          :class="item.class"
+          v-if="item.type === 'textarea'"
+        />
 
-          <div class="form-error" v-if="errors.first(item.key)">{{ errors.first(item.key) }}</div>
-        </div>
+        <div class="form-error" v-if="errors.first(item.key)">{{ errors.first(item.key) }}</div>
       </div>
+    </div>
 
-      <ion-button expand="block" type="submit">{{ btnText }}</ion-button>
-    </form>
-  </div>
+    <ion-button expand="block" type="submit">{{ btnText }}</ion-button>
+  </form>
 </template>
 
 <script>
@@ -70,7 +67,7 @@
 export default {
   name: "ionic-vue-form",
   props: {
-    form: {
+    formFields: {
       type: Array,
       required: true
     },
@@ -81,10 +78,9 @@ export default {
       type: String,
       default: "Continue"
     },
-    // hideSubmit: {
-    //   type: Boolean,
-    //   default: false
-    // },
+    wrapperClass: {
+      type: String,
+    },
     groupAddress: {
       type: Boolean,
       default: false
@@ -92,16 +88,12 @@ export default {
   },
   data() {
     return {
-      showSubmitButton: false,
       formData: this.data ? this.data : {},
-      formFields: this.form
+      // formFields: this.form
       // formFields: formFieldsList(this.form)
     };
   },
   methods: {
-    customFileInputClass(type) {
-      return type === "file" ? "custom-file-input" : "";
-    },
     fileUpload(item) {
       this.$emit("fileUpload", item);
     },
