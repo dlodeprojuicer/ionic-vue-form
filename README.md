@@ -1,6 +1,6 @@
 # Ionic Vue Form
 
-This tiny package renders dynamic fully customizable form with form-field conditional logic.
+Render fully customizable dynamic form with form-field conditional logic.
 
 ## Basic usage
 `npm install vue-ionic-form`
