@@ -1,0 +1,28 @@
+{
+  "name": "ionic-vue-form",
+  "version": "1.0.5",
+  "description": "Dynamic form render",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlodeprojuicer/ionic-vue-form.git"
+  },
+  "keywords": [
+    "ionic-vue-form",
+    "ionic",
+    "vue",
+    "form"
+  ],
+  "author": "Simo Mafuxwana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlodeprojuicer/ionic-vue-form/issues"
+  },
+  "homepage": "https://github.com/dlodeprojuicer/ionic-vue-form#readme"
+}
