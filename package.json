@@ -1,6 +1,6 @@
 {
   "name": "ionic-vue-form",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Dynamic form render",
   "main": "index.js",
   "directories": {
