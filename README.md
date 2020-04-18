@@ -8,7 +8,7 @@ This tiny package renders dynamic fully customizable form with form-field condit
 ```
 <template>
   <div>
-    <IonicVueForm :form="form" btnText="Submit" />
+    <IonicVueForm :formFields="form" btnText="Submit" />
   </div>
 </template>
 
@@ -19,16 +19,14 @@ This tiny package renders dynamic fully customizable form with form-field condit
     components: { VueIonicForm },
     data () {
       return {
-        selected: null,
         form: [
           {
             key: "email",
-            label: "Email",
-            validation: "required|min:6"
+            label: "Email"
           },
           {
             key: "password",
-            validation: "required|min:3"
+            label: "Password
           }
         ]
       }
@@ -43,11 +41,56 @@ This tiny package renders dynamic fully customizable form with form-field condit
 </script>
 ```
 
+## Auto-fill example
+
+`data` prop takes the data object, binds each key-value pair to the relavent form field
+
+```
+<template>
+  <div>
+    <IonicVueForm :formFields="form" :data="formData" btnText="Submit" />
+  </div>
+</template>
+
+<script>
+  import { VueIonicForm } from 'vue-ionic-form'
+
+  export default {
+    components: { VueIonicForm },
+    data () {
+      return {
+        form: [
+          {
+            key: "first_name",
+            label: "First name"
+          },
+          {
+            key: "last_name",
+            label: "Last name
+          }
+        ],
+        formData: {
+          first_name: "John",
+          last_name: "Doe"
+        }
+      }
+    },
+    methods: {
+      submit(data) {
+        // Submit logic
+        // data - Form input(s)
+      }
+    }
+  }
+</script>
+```
+
+
 ## Props
 
 |Name|Type|Required|Default|Description
 |---|---|---|---|---|
-|form|`Array`|`true`|-|List of fields to render|
+|formFields|`Array`|`true`|-|List of fields to render|
 |data|`Object`|`false`|-|Form datta (if you need to auto-fill the form)|
 |btnText|`String`|`false`|Continue|Submit button text|
 |wrapperClass|`String`|`false`|-|Form wrapper class|
@@ -112,7 +155,7 @@ Show **number** field if **email** value is **a@b.com**
           label: "Number",
           validation: "required|min:6",
           class: "uk-input",
-          condition: { // show number field if email value is a@b.com
+          condition: {
             key: "email",
             value: "a@b.com"
           }
