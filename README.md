@@ -85,7 +85,6 @@ This tiny package renders dynamic fully customizable form with form-field condit
 </script>
 ```
 
-
 ## Props
 
 |Name|Type|Required|Default|Description
@@ -102,15 +101,13 @@ This tiny package renders dynamic fully customizable form with form-field condit
 |submit|Submit form|-|
 
 ## Field Properties
-**key** `required | String` Must be unique, the key will be used in formData.
-**label** `optional | String` Input field's label
-**validation** `optional | String` Field validation rules, Ionic vue form uses VeeValidate.
-**class** `optional | String` Input CSS class
-
-**rows** `optional | Integer` *rows* attribute for textarea input
-**rows** `optional | Integer` *cols* attribute for textarea input
-
-**options** `required | Array` List of *option* values for select dropdown
+- **key** `required | String` Must be unique, the key will be used in formData.
+- **label** `optional | String` Input field's label
+- **validation** `optional | String` Field validation rules, Ionic vue form uses [VeeValidate](https://logaretm.github.io/vee-validate/)
+- **class** `optional | String` Input CSS class
+- **rows** `optional | Integer` *rows* attribute for textarea input
+- **rows** `optional | Integer` *cols* attribute for textarea input
+- **options** `required | Array` List of *option* values for select dropdown
 
 ## Conditional Form Fields
 
