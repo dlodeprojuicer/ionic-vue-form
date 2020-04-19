@@ -129,79 +129,73 @@ Show **number** field if **email** value is **a@b.com**
 ```
 ## Demo
 
+[Sandbox Demo](https://codesandbox.io/s/mystifying-bash-4c6iu?file=/src/components/HelloWorld.vue)
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://codesandbox.io/s/mystifying-bash-4c6iu?fontsize=14&hidenavigation=1&theme=dark)
-
-## Example
-
+Demo Form
 ```
-  data() {
-    return {
-      form: [
+  form: [
+    {
+      key: "fullname",
+      label: "Name",
+      validation: "required|min:6",
+      class: "uk-input",
+    },
+    {
+      key: "email",
+      label: "Email",
+      validation: "required|min:6",
+      class: "uk-input",
+    },
+    {
+      key: "number",
+      type: "number",
+      label: "Number",
+      validation: "required|min:6",
+      class: "uk-input",
+      condition: {
+        key: "email",
+        value: "a@b.com"
+      }
+    },
+    {
+      key: "profilePicture",
+      type: "file",
+      label: "Profile Picture",
+      class: "uk-input custom-file-input"
+    },
+    {
+      key: "password",
+      type: "password",
+      label: "Password",
+      validation: "required|min:3",
+      class: "uk-input"
+    },
+    {
+      key: "textarea",
+      type: "textarea",
+      label: "Note",
+      cols: 40,
+      rows: 5
+    },
+    {
+      key: "select",
+      type: "select",
+      label: "Choose one",
+      class: "uk-select uk-form-width-large",
+      options: [
         {
-          key: "fullname",
-          label: "Name",
-          validation: "required|min:6",
-          class: "uk-input",
+          label: "Javascript"
         },
         {
-          key: "email",
-          label: "Email",
-          validation: "required|min:6",
-          class: "uk-input",
+          label: "PHP"
         },
         {
-          key: "number",
-          type: "number",
-          label: "Number",
-          validation: "required|min:6",
-          class: "uk-input",
-          condition: {
-            key: "email",
-            value: "a@b.com"
-          }
+          label: "Java"
         },
         {
-          key: "profilePicture",
-          type: "file",
-          label: "Profile Picture",
-          class: "uk-input custom-file-input"
-        },
-        {
-          key: "password",
-          type: "password",
-          label: "Password",
-          validation: "required|min:3",
-          class: "uk-input"
-        },
-        {
-          key: "textarea",
-          type: "textarea",
-          label: "Note",
-          cols: 40,
-          rows: 5
-        },
-        {
-          key: "select",
-          type: "select",
-          label: "Choose one",
-          class: "uk-select uk-form-width-large",
-          options: [
-            {
-              label: "Javascript"
-            },
-            {
-              label: "PHP"
-            },
-            {
-              label: "Java"
-            },
-            {
-              label: "C#"
-            }
-          ]
+          label: "C#"
         }
       ]
     }
-  }
+  ]
 ```
