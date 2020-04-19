@@ -41,6 +41,15 @@ Render fully customizable dynamic form with form-field conditional logic.
 </script>
 ```
 
+## Note
+In your project's main.js import and use vee-validate
+
+```
+import VeeValidate from 'vee-validate'
+
+Vue.use(VeeValidate)
+```
+
 ## Auto-fill example
 
 `data` prop takes the data object, binds each key-value pair to the relavent form field
@@ -131,71 +140,5 @@ Show **number** field if **email** value is **a@b.com**
 
 [Sandbox Demo](https://codesandbox.io/s/mystifying-bash-4c6iu?file=/src/components/HelloWorld.vue)
 
-Demo Form
-```
-  form: [
-    {
-      key: "fullname",
-      label: "Name",
-      validation: "required|min:6",
-      class: "uk-input",
-    },
-    {
-      key: "email",
-      label: "Email",
-      validation: "required|min:6",
-      class: "uk-input",
-    },
-    {
-      key: "number",
-      type: "number",
-      label: "Number",
-      validation: "required|min:6",
-      class: "uk-input",
-      condition: {
-        key: "email",
-        value: "a@b.com"
-      }
-    },
-    {
-      key: "profilePicture",
-      type: "file",
-      label: "Profile Picture",
-      class: "uk-input custom-file-input"
-    },
-    {
-      key: "password",
-      type: "password",
-      label: "Password",
-      validation: "required|min:3",
-      class: "uk-input"
-    },
-    {
-      key: "textarea",
-      type: "textarea",
-      label: "Note",
-      cols: 40,
-      rows: 5
-    },
-    {
-      key: "select",
-      type: "select",
-      label: "Choose one",
-      class: "uk-select uk-form-width-large",
-      options: [
-        {
-          label: "Javascript"
-        },
-        {
-          label: "PHP"
-        },
-        {
-          label: "Java"
-        },
-        {
-          label: "C#"
-        }
-      ]
-    }
-  ]
-```
+
+![Ionic Vue Form Screenshot](https://github.com/dlodeprojuicer/ionic-images/blob/master/Screenshot%202020-04-19%20at%2013.19.48.png "Ionic Vue Form Screenshot")
