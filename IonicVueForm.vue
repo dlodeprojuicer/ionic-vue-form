@@ -17,7 +17,7 @@
           v-model="formData[item.key]"
           v-if="item.type !== 'select' && item.type !== 'helperText' && item.type !== 'checkbox' && item.type !== 'textarea'"
           :name="item.key"
-          @change="item.type === 'file' ? fileUpload : null"
+          @change="fileUpload"
           v-validate="item.validation"
         />
 
