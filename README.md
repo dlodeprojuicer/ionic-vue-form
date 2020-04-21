@@ -2,9 +2,29 @@
 
 Render fully customizable dynamic form with form-field conditional logic.
 
-## Basic usage
+## Install
 `npm install vue-ionic-form`
 
+```
+// Register globally (optional)
+import { IonicVueForm } from "ionic-vue-form"
+
+Vue.component("IonicVueForm",IonicVueForm)
+
+
+// Register locally (optional)
+<script>
+  import { VueIonicForm } from 'vue-ionic-form'
+
+  export default {
+    components: {
+      VueIonicForm
+    }
+  }
+<script>
+```
+
+## Basic usage
 ```
 <template>
   <div>
@@ -16,7 +36,9 @@ Render fully customizable dynamic form with form-field conditional logic.
   import { VueIonicForm } from 'vue-ionic-form'
 
   export default {
-    components: { VueIonicForm },
+    components: {
+      VueIonicForm
+    },
     data () {
       return {
         form: [
@@ -108,6 +130,7 @@ Vue.use(VeeValidate)
 |Event|Description|Parameters|
 |---|---|---|
 |submit|Submit form|-|
+|fileUpload|Useful when you want to handle file processing separately |-|
 
 ## Field Properties
 - **key** `required | String` Must be unique, the key will be used in formData.
