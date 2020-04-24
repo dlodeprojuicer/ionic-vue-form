@@ -3,7 +3,7 @@
 Render fully customizable dynamic form with form-field conditional logic.
 
 ## Install
-`npm install vue-ionic-form`
+`npm install ionic-vue-form`
 
 ```
 // Register globally (optional)
