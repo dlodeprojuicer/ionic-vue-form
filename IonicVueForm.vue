@@ -17,9 +17,13 @@
           v-model="formData[item.key]"
           v-if="item.type !== 'select' && item.type !== 'helperText' && item.type !== 'checkbox' && item.type !== 'textarea'"
           :name="item.key"
-          @change="fileUpload"
+          @change="fileUpload($event ,index)"
           v-validate="item.validation"
         />
+
+        <div class="image-container" v-if="item.type === 'file' && item.upload">
+          <img v-if="item.upload && item.upload.type.includes('image')" :src="item.upload.file" :alt="`${item.key} file`" />
+        </div>
 
         <ion-item class="checkbox" v-if="item.type === 'checkbox'">
           <p>{{ item.label }}</p>
@@ -63,7 +67,6 @@
 </template>
 
 <script>
-// import { formFieldsList } from "./form";
 export default {
   name: "ionic-vue-form",
   props: {
@@ -89,13 +92,21 @@ export default {
   data() {
     return {
       formData: this.data ? this.data : {},
-      // formFields: this.form
-      // formFields: formFieldsList(this.form)
+      url: null,
+      keyIndex: null
     };
   },
   methods: {
-    fileUpload(item) {
+    fileUpload(item, index) {
+      const file = item.target.files[0];
+
       this.$emit("fileUpload", item);
+      console.log(item.target.files[0])
+
+      this.formFields[index].upload = {
+        file: URL.createObjectURL(file),
+        type: file.type
+      }
     },
     submit(e) {
       e.preventDefault();
@@ -131,6 +142,10 @@ ion-textarea {
   background: red;
   padding: 11px;
   border-radius: 10px;
+}
+
+.image-container {
+  max-width: 60%;
 }
 
 .helperText {
