@@ -157,9 +157,9 @@ Show **number** field if **email** value is **a@b.com**
   }
 }
 ```
-- **component** is `required` if `type` is `component`. If the component requeries _props_ you can use **props** property which takes an object
+- **component** is `required` if `type` is `component`. If the component requires _props_ you can use **props** property which takes an object
 
-Component property is useful for when you want to use a 3rd party component in your form. In the example below, I want to use **vue-multiselect** in my form.
+This is useful when you want to use a 3rd party component in your form. In the example below, I want to use **vue-multiselect** in my form.
 ```
 <script>
 import multiselect from "vue-multiselect";
@@ -186,6 +186,7 @@ export default {
     ]
   }
 }
+```
 
 
 ## Demo
