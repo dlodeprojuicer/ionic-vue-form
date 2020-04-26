@@ -14,11 +14,11 @@ Vue.component("IonicVueForm",IonicVueForm)
 
 // Register locally (optional)
 <script>
-  import { VueIonicForm } from 'vue-ionic-form'
+  import { IonicVueForm } from 'ionic-vue-form'
 
   export default {
     components: {
-      VueIonicForm
+      IonicVueForm
     }
   }
 <script>
@@ -33,11 +33,11 @@ Vue.component("IonicVueForm",IonicVueForm)
 </template>
 
 <script>
-  import { VueIonicForm } from 'vue-ionic-form'
+  import { IonicVueForm } from 'ionic-vue-form'
 
   export default {
     components: {
-      VueIonicForm
+      IonicVueForm
     },
     data () {
       return {
@@ -84,10 +84,10 @@ Vue.use(VeeValidate)
 </template>
 
 <script>
-  import { VueIonicForm } from 'vue-ionic-form'
+  import { IonicVueForm } from 'ionic-vue-form'
 
   export default {
-    components: { VueIonicForm },
+    components: { IonicVueForm },
     data () {
       return {
         form: [
@@ -140,9 +140,7 @@ Vue.use(VeeValidate)
 - **rows** `optional | Integer` *rows* attribute for textarea input
 - **rows** `optional | Integer` *cols* attribute for textarea input
 - **options** `required | Array` List of *option* values for select dropdown
-
-## Conditional Form Fields
-
+- **condition** `optional | Object`
 Show **number** field if **email** value is **a@b.com**
 ```
 {
@@ -159,6 +157,37 @@ Show **number** field if **email** value is **a@b.com**
   }
 }
 ```
+- **component** is `required` if `type` is `component`. If the component requeries _props_ you can use **props** property which takes an object
+
+Component property is useful for when you want to use a 3rd party component in your form. In the example below, I want to use **vue-multiselect** in my form.
+```
+<script>
+import multiselect from "vue-multiselect";
+
+export default {
+  data() {
+    form: [
+      {
+        key: "category",
+        label: "Select Category",
+        type: "component",
+        component: multiselect,
+        props: {
+          options: [],
+          multiple: true,
+          closeOnSelect: false,
+          clearOnSelect: false,
+          hideSelected: true,
+          preserveSearch: true,
+          trackBy: "category_label",
+          label: "category_label"
+        }
+      }
+    ]
+  }
+}
+
+
 ## Demo
 
 [Sandbox Demo](https://codesandbox.io/s/mystifying-bash-4c6iu?file=/src/components/HelloWorld.vue)
