@@ -134,6 +134,7 @@ Vue.use(VeeValidate)
 
 ## Field Properties
 - **key** `required | String` Must be unique, the key will be used in formData.
+- **type** `required | String` Input type, defaults to `text`.
 - **label** `optional | String` Input field's label
 - **validation** `optional | String` Field validation rules, Ionic vue form uses [VeeValidate](https://logaretm.github.io/vee-validate/)
 - **class** `optional | String` Input CSS class
