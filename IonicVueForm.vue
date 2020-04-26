@@ -15,7 +15,7 @@
           :class="item.class"
           :type="item.type"
           v-model="formData[item.key]"
-          v-if="item.type !== 'select' && item.type !== 'helperText' && item.type !== 'checkbox' && item.type !== 'textarea'"
+          v-if="item.type !== 'select' && item.type !== 'helperText' && item.type !== 'checkbox' && item.type !== 'textarea' && item.type !== 'component'"
           :name="item.key"
           @change="fileUpload($event ,index)"
           v-validate="item.validation"
@@ -24,6 +24,12 @@
         <div class="image-container" v-if="item.type === 'file' && item.upload">
           <img v-if="item.upload && item.upload.type.includes('image')" :src="item.upload.file" :alt="`${item.key} file`" />
         </div>
+
+        <component
+          v-if="item.type === 'component'"
+          :is="item.component"
+          v-bind="item.props"
+        />
 
         <ion-item class="checkbox" v-if="item.type === 'checkbox'">
           <p>{{ item.label }}</p>
