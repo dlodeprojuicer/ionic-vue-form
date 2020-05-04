@@ -107,7 +107,6 @@ export default {
       const file = item.target.files[0];
 
       this.$emit("fileUpload", item);
-      console.log(item.target.files[0])
 
       this.formFields[index].upload = {
         file: URL.createObjectURL(file),
