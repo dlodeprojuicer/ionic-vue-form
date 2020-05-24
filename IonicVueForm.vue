@@ -28,6 +28,7 @@
         <component
           v-if="item.type === 'component'"
           :is="item.component"
+          v-model="formData[item.key]"
           v-bind="item.props"
         />
 
