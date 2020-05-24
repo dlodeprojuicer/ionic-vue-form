@@ -1,7 +1,7 @@
 {
   "name": "ionic-vue-form",
-  "version": "1.2.1",
-  "description": "Dynamic form render",
+  "version": "1.2.2",
+  "description": "Render fully customizable dynamic form with form-field conditional logic",
   "main": "index.js",
   "directories": {
     "test": "test"
